@@ -1,7 +1,15 @@
 import { Box } from "@mui/material";
 import { Footer, Header, LoginForm } from "./components";
+import { useAuth } from "@/shared/providers";
+import { Navigate } from "react-router-dom";
 
 const LoginPage = () => {
+  const { isAuthenticated } = useAuth();
+
+  if (isAuthenticated) {
+    return <Navigate to="/dashboard" replace />;
+  }
+
   return (
     <>
       <Header />

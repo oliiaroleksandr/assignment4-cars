@@ -4,6 +4,7 @@ import DashboardPage from "./pages/Dashboard";
 import ReviewPage from "./pages/Review";
 import LoginPage from "./pages/Login";
 import { Container } from "@mui/material";
+import { ProtectedRoute } from "@/shared/components";
 
 const App = () => {
   return (
@@ -19,8 +20,12 @@ const App = () => {
     >
       <Routes>
         <Route path="*" element={<NotFoundPage />} />
-        <Route path="/dashboard" element={<DashboardPage />} />
-        <Route path="/review" element={<ReviewPage />} />
+
+        <Route element={<ProtectedRoute />}>
+          <Route path="/dashboard" element={<DashboardPage />} />
+          <Route path="/review" element={<ReviewPage />} />
+        </Route>
+
         <Route path="/login" element={<LoginPage />} />
       </Routes>
     </Container>

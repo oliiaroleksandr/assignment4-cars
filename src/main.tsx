@@ -4,6 +4,8 @@ import App from "./App.tsx";
 import CssBaseline from "@mui/material/CssBaseline";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import { BrowserRouter } from "react-router-dom";
+import { SnackbarProvider } from "notistack";
+import AuthProvider from "./shared/providers/Auth.tsx";
 
 import "./index.css";
 
@@ -23,7 +25,14 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
     <BrowserRouter>
       <ThemeProvider theme={darkTheme}>
         <CssBaseline />
-        <App />
+        <AuthProvider>
+          <SnackbarProvider
+            maxSnack={3}
+            anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
+          >
+            <App />
+          </SnackbarProvider>
+        </AuthProvider>
       </ThemeProvider>
     </BrowserRouter>
   </React.StrictMode>

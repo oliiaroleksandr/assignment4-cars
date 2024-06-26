@@ -1,3 +1,5 @@
+import { zodResolver } from "@hookform/resolvers/zod";
+import SendIcon from "@mui/icons-material/Send";
 import {
   Box,
   Container,
@@ -7,21 +9,24 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
-import SendIcon from "@mui/icons-material/Send";
+import { useSnackbar } from "notistack";
+import { Controller, useForm } from "react-hook-form";
 import { z } from "zod";
-import { useForm, Controller } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
+import { useAuth } from "@/shared/providers";
 
 const loginSchema = z.object({
   email: z.string().email(),
   password: z
     .string()
-    .min(8, { message: "Password must be at least 8 characters" }),
+    .min(8, { message: "Password must contain at least 8 characters" }),
 });
 
 type LoginSchema = z.infer<typeof loginSchema>;
 
 const LoginForm = () => {
+  const { setIsAuthenticated } = useAuth();
+  const { enqueueSnackbar } = useSnackbar();
+
   const form = useForm<LoginSchema>({
     resolver: zodResolver(loginSchema),
     defaultValues: {
@@ -31,7 +36,15 @@ const LoginForm = () => {
   });
 
   const handleSubmit = (data: LoginSchema) => {
-    console.log(data);
+    const { email, password } = data;
+
+    if (email === "admin@admin.com" && password === "admin1234") {
+      setIsAuthenticated(true);
+      enqueueSnackbar("Logged in successfully", { variant: "success" });
+      return;
+    }
+
+    enqueueSnackbar("Invalid email or password", { variant: "error" });
   };
 
   return (
