@@ -4,7 +4,7 @@ import DashboardPage from "./pages/Dashboard";
 import ReviewPage from "./pages/Review";
 import LoginPage from "./pages/Login";
 import { Container } from "@mui/material";
-import { ProtectedRoute } from "@/shared/components";
+import { Layout, ProtectedRoute } from "@/shared/components";
 
 const App = () => {
   return (
@@ -15,15 +15,16 @@ const App = () => {
         flexDirection: "column",
         minHeight: "100vh",
         overflow: "hidden",
-        position: "relative",
       }}
     >
       <Routes>
         <Route path="*" element={<NotFoundPage />} />
 
         <Route element={<ProtectedRoute />}>
-          <Route path="/dashboard" element={<DashboardPage />} />
-          <Route path="/review" element={<ReviewPage />} />
+          <Route element={<Layout />}>
+            <Route path="/dashboard" element={<DashboardPage />} />
+            <Route path="/review" element={<ReviewPage />} />
+          </Route>
         </Route>
 
         <Route path="/login" element={<LoginPage />} />

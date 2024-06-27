@@ -1,0 +1,17 @@
+.header {
+  padding-top: 2.5rem;
+  padding-bottom: 1.5rem;
+  display: flex;
+  justify-content: center;
+
+  @media screen and (min-width: 880px) {
+    justify-content: flex-end;
+    padding-right: 3rem;
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}

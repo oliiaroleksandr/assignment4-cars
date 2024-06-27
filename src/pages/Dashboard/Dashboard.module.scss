@@ -1,0 +1,10 @@
+.dashboard {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+
+  @media screen and (min-width: 880px) {
+    flex-direction: row;
+    align-items: stretch;
+  }
+}

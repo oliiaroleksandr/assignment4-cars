@@ -1,0 +1,26 @@
+.side-table {
+  flex-basis: 25rem;
+
+  & tr {
+    border-bottom: 2px solid rgb(81, 81, 81);
+  }
+
+  & td {
+    &:last-child {
+      text-align: right;
+    }
+  }
+
+  & thead tr {
+    border: 2px solid rgb(81, 81, 81);
+
+    & th {
+      color: rgb(109, 109, 109);
+      text-transform: uppercase;
+
+      &:last-child {
+        text-align: right;
+      }
+    }
+  }
+}

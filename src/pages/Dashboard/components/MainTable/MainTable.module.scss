@@ -1,0 +1,29 @@
+.main-table {
+  flex-grow: 1;
+
+  & tr {
+    border-bottom: 2px solid rgb(81, 81, 81);
+  }
+
+  & th,
+  td {
+    white-space: nowrap;
+  }
+
+  & tbody tr {
+    transition: background-color 0.1s linear;
+
+    &:hover {
+      background-color: darkblue;
+    }
+  }
+
+  & thead tr {
+    border: 2px solid rgb(81, 81, 81);
+
+    & th {
+      color: rgb(109, 109, 109);
+      text-transform: uppercase;
+    }
+  }
+}
