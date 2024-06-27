@@ -1,4 +1,10 @@
-export const columns = ["PROJECT NAME", "STATUS", "NEXT REVIEW", "DELIVERY"];
+export const columns = [
+  "PROJECT NAME",
+  "STATUS",
+  "NEXT REVIEW",
+  "IMAGES",
+  "DELIVERY",
+];
 
 export type Project = {
   id: number;
@@ -6,6 +12,7 @@ export type Project = {
   status: "DATA" | "REVIEW" | "PRODUCTION" | "GARAGING";
   nextReview: string;
   delivery: string;
+  images: string[];
 };
 
 export const projetcs: Project[] = [
@@ -15,6 +22,7 @@ export const projetcs: Project[] = [
     status: "DATA",
     nextReview: "01/25/21",
     delivery: "01/25/21",
+    images: [],
   },
   {
     id: 2,
@@ -22,6 +30,7 @@ export const projetcs: Project[] = [
     status: "REVIEW",
     nextReview: "01/25/21",
     delivery: "01/25/21",
+    images: [],
   },
   {
     id: 3,
@@ -29,6 +38,7 @@ export const projetcs: Project[] = [
     status: "PRODUCTION",
     nextReview: "01/25/21",
     delivery: "01/25/21",
+    images: [],
   },
   {
     id: 4,
@@ -36,6 +46,7 @@ export const projetcs: Project[] = [
     status: "GARAGING",
     nextReview: "01/25/21",
     delivery: "01/25/21",
+    images: [],
   },
   {
     id: 5,
@@ -43,6 +54,7 @@ export const projetcs: Project[] = [
     status: "DATA",
     nextReview: "01/25/21",
     delivery: "01/25/21",
+    images: [],
   },
   {
     id: 6,
@@ -50,6 +62,7 @@ export const projetcs: Project[] = [
     status: "DATA",
     nextReview: "01/25/21",
     delivery: "01/25/21",
+    images: [],
   },
   {
     id: 7,
@@ -57,5 +70,6 @@ export const projetcs: Project[] = [
     status: "DATA",
     nextReview: "01/25/21",
     delivery: "01/25/21",
+    images: [],
   },
 ];

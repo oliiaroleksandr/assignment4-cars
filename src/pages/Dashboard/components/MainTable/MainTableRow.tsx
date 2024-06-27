@@ -37,6 +37,7 @@ const MainTableRow = (project: Omit<Project, "id">) => {
       <TableCell>{project.name}</TableCell>
       <TableCell>{project.status}</TableCell>
       <TableCell>{project.nextReview}</TableCell>
+      <TableCell>{project.images.length}</TableCell>
       <TableCell>{project.delivery}</TableCell>
       <Menu
         open={contextMenu !== null}
