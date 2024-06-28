@@ -1,2 +1,3 @@
 export { default as ProtectedRoute } from "./ProtectedRoute";
-export { Layout } from "./Layout";
+export { ProtectedLayout } from "./ProtectedLayout";
+export { ReviewLayout } from "./ReviewLayout";
