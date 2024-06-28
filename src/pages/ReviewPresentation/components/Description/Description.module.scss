@@ -9,19 +9,6 @@
     padding: 0.5rem;
     max-height: 23.5rem;
     overflow-y: scroll;
-
-    &::-webkit-scrollbar {
-      background-color: black;
-      border-left: 1.5px solid rgb(169, 169, 169);
-      border-right: none;
-      padding: 0.2rem;
-      width: 0.8rem;
-    }
-
-    &::-webkit-scrollbar-thumb {
-      background-color: rgb(169, 169, 169);
-      height: 2rem;
-    }
   }
 
   &__bottom {

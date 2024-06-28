@@ -29,6 +29,7 @@ const App = () => {
         <Route element={<ProtectedRoute />}>
           <Route element={<ProtectedLayout />}>
             <Route path="/dashboard" element={<DashboardPage />} />
+            
             <Route element={<ReviewLayout />}>
               <Route
                 path="/reviewPresentation"

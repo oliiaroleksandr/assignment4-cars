@@ -1,0 +1,13 @@
+.description {
+  flex-basis: 30%;
+
+  &__panel {
+    height: 2rem;
+  }
+
+  &__body {
+    border: 1.5px solid;
+    padding: 0.5rem 0.7rem;
+    height: 23.5rem;
+  }
+}

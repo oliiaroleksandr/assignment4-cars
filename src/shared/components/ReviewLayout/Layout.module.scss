@@ -1,7 +1,18 @@
 .content {
   padding-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: space-between;
+  gap: 1.5rem;
 
   @media screen and (min-width: 1087px) {
-    padding: 1rem 3rem 0 3rem;
+    padding: 1rem 2rem;
+  }
+
+  @media screen and (min-width: 788px) {
+    flex-direction: row;
+    align-items: stretch;
+    justify-content: space-between;
   }
 }

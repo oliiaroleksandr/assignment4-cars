@@ -1,7 +1,13 @@
-const ReviewGalleryPage = () => {
-  return (
-    <div>ReviewGalleryPage</div>
-  )
-}
+import { Gallery } from "./Gallery";
+import { Description } from "./Description";
 
-export default ReviewGalleryPage
+const ReviewGallery = () => {
+  return (
+    <>
+      <Gallery />
+      <Description />
+    </>
+  );
+};
+
+export default ReviewGallery;
