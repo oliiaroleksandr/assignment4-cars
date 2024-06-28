@@ -5,11 +5,13 @@ import ReviewPresentationPage from "./pages/ReviewPresentation";
 import LoginPage from "./pages/Login";
 import { Container } from "@mui/material";
 import {
+  AuthLayout,
   ProtectedLayout,
   ProtectedRoute,
   ReviewLayout,
 } from "@/shared/components";
 import ReviewGalleryPage from "./pages/ReviewGallery";
+import ChangePasswordPage from "./pages/ChangePassword";
 
 const App = () => {
   return (
@@ -29,7 +31,7 @@ const App = () => {
         <Route element={<ProtectedRoute />}>
           <Route element={<ProtectedLayout />}>
             <Route path="/dashboard" element={<DashboardPage />} />
-            
+
             <Route element={<ReviewLayout />}>
               <Route
                 path="/reviewPresentation"
@@ -40,7 +42,10 @@ const App = () => {
           </Route>
         </Route>
 
-        <Route path="/login" element={<LoginPage />} />
+        <Route element={<AuthLayout />}>
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/changePassword" element={<ChangePasswordPage />} />
+        </Route>
       </Routes>
     </Container>
   );

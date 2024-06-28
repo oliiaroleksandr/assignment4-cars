@@ -12,34 +12,27 @@ import {
 import { useSnackbar } from "notistack";
 import { Controller, useForm } from "react-hook-form";
 import { z } from "zod";
-import { useAuth } from "@/shared/providers";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { authSchema } from "@/shared/validations";
 
-type LoginSchema = z.infer<typeof authSchema>;
+const changePasswordSchema = authSchema.pick({ password: true });
 
-const LoginForm = () => {
-  const { setIsAuthenticated } = useAuth();
+type ChangePasswordSchema = z.infer<typeof changePasswordSchema>;
+
+const ChangePasswordForm = () => {
   const { enqueueSnackbar } = useSnackbar();
+  const navigate = useNavigate();
 
-  const form = useForm<LoginSchema>({
-    resolver: zodResolver(authSchema),
+  const form = useForm<ChangePasswordSchema>({
+    resolver: zodResolver(changePasswordSchema),
     defaultValues: {
-      email: "",
       password: "",
     },
   });
 
-  const handleSubmit = (data: LoginSchema) => {
-    const { email, password } = data;
-
-    if (email === "admin@admin.com" && password === "admin1234") {
-      setIsAuthenticated(true);
-      enqueueSnackbar("Logged in successfully", { variant: "success" });
-      return;
-    }
-
-    enqueueSnackbar("Invalid email or password", { variant: "error" });
+  const handleSubmit = () => {
+    enqueueSnackbar("Password changed successfully", { variant: "success" });
+    navigate("/login");
   };
 
   return (
@@ -59,20 +52,6 @@ const LoginForm = () => {
           noValidate
         >
           <Controller
-            name="email"
-            control={form.control}
-            render={({ field, fieldState: { error } }) => (
-              <TextField
-                helperText={error ? error.message : null}
-                error={!!error}
-                fullWidth
-                id="email"
-                label="Email"
-                {...field}
-              />
-            )}
-          />
-          <Controller
             name="password"
             control={form.control}
             render={({ field, fieldState: { error } }) => (
@@ -89,8 +68,8 @@ const LoginForm = () => {
           />
           <Grid container alignItems="center">
             <Grid item xs>
-              <Link to="/changePassword">
-                <Typography variant="body2">Forgot password?</Typography>
+              <Link to="/login">
+                <Typography variant="body2">Back to login</Typography>
               </Link>
             </Grid>
             <Grid item>
@@ -105,4 +84,4 @@ const LoginForm = () => {
   );
 };
 
-export default LoginForm;
+export default ChangePasswordForm;
