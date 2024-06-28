@@ -1,0 +1,67 @@
+.heading {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 1rem;
+  border: 2px solid;
+
+  & h2 {
+    font-size: 1.1rem;
+    font-weight: normal;
+  }
+
+  &__left {
+    & h2 {
+      text-transform: uppercase;
+    }
+  }
+
+  &__right {
+    @media screen and (min-width: 768px) {
+      text-align: right;
+    }
+  }
+
+  &__toggle {
+    border: 1.5px solid rgb(169, 169, 169);
+
+    button {
+      padding: 0.1rem 2rem;
+      font-weight: normal;
+      color: rgb(169, 169, 169);
+      border-radius: 0;
+
+      &[aria-pressed="true"] {
+        background-color: rgb(169, 169, 169);
+        color: black;
+
+        &:hover {
+          background-color: rgb(169, 169, 169);
+        }
+      }
+
+      @media screen and (min-width: 768px) {
+        padding: 0.1rem 2.5rem;
+      }
+    }
+  }
+
+  @media screen and (min-width: 768px) {
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+    padding: 1rem 2rem;
+
+    h2 {
+      font-size: 1.3rem;
+    }
+  }
+
+  @media screen and (min-width: 1087px) {
+    border-left: none;
+    
+    h2 {
+      font-size: 1.5rem;
+    }
+  }
+}

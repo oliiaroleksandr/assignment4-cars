@@ -4,6 +4,7 @@ import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import TableCell from "@mui/material/TableCell";
 import { MouseEvent, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 type Position = {
   mouseX: number;
@@ -11,6 +12,7 @@ type Position = {
 };
 
 const MainTableRow = (project: Omit<Project, "id">) => {
+  const navigate = useNavigate();
   const [contextMenu, setContextMenu] = useState<Position | null>(null);
 
   const handleContextMenu = (event: MouseEvent<HTMLTableRowElement>) => {
@@ -29,10 +31,15 @@ const MainTableRow = (project: Omit<Project, "id">) => {
     setContextMenu(null);
   };
 
+  const handleNavigate = () => {
+    navigate(`/reviewPresentation`);
+  };
+
   return (
     <TableRow
       onContextMenu={handleContextMenu}
       style={{ cursor: "context-menu" }}
+      onClick={handleNavigate}
     >
       <TableCell>{project.name}</TableCell>
       <TableCell>{project.status}</TableCell>
@@ -49,7 +56,7 @@ const MainTableRow = (project: Omit<Project, "id">) => {
             : undefined
         }
       >
-        <MenuItem onClick={handleClose}>Open</MenuItem>
+        <MenuItem onClick={handleNavigate}>Open</MenuItem>
         <MenuItem onClick={handleClose}>Edit</MenuItem>
         <MenuItem onClick={handleClose}>Duplicate</MenuItem>
         <MenuItem onClick={handleClose}>Download</MenuItem>

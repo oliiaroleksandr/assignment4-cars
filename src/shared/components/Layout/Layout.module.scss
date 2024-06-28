@@ -1,12 +1,15 @@
 .main {
   padding-bottom: 7rem;
+  flex-grow: 1;
+  overflow: hidden;
 
-  @media screen and (min-width: 1061px) {
-    padding-left: 5.5rem;
+  @media screen and (min-width: 1071px) {
     padding-bottom: 0;
   }
+}
 
-  @media screen and (min-width: 1654px) {
-    padding-left: 0;
-  }
+.content {
+  display: flex;
+  align-items: start;
+  padding-bottom: 2rem;
 }

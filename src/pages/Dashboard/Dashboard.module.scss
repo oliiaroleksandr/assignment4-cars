@@ -2,9 +2,14 @@
   display: flex;
   flex-direction: column;
   gap: 2.5rem;
+  
 
   @media screen and (min-width: 973px) {
     flex-direction: row;
     align-items: stretch;
+  }
+
+  @media screen and (min-width: 1087px) {
+    padding-left: 2.5rem;
   }
 }

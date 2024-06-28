@@ -1,0 +1,45 @@
+.gallery {
+  flex-basis: 70%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  align-items: flex-end;
+
+  &__frame {
+    padding: 0.3rem 0.5rem;
+    border: 1.5px solid;
+    width: 100%;
+  }
+
+  &__carousel {
+    overflow: hidden;
+  }
+
+  &__container {
+    display: flex;
+    gap: 0;
+  }
+
+  &__slide {
+    flex: 0 0 100%;
+    min-width: 0;
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 16 / 9;
+
+    & img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &__controls {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+  }
+}

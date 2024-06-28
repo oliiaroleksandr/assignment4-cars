@@ -9,9 +9,11 @@ const Layout = () => {
   return (
     <>
       <Header />
-      <Sidebar />
-      <Box component="main" className={classes.main}>
-        <Outlet />
+      <Box className={classes.content}>
+        <Sidebar />
+        <Box component="main" className={classes.main}>
+          <Outlet />
+        </Box>
       </Box>
     </>
   );

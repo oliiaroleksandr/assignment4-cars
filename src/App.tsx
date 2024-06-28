@@ -1,7 +1,7 @@
 import { Route, Routes } from "react-router-dom";
 import NotFoundPage from "./pages/NotFound";
 import DashboardPage from "./pages/Dashboard";
-import ReviewPage from "./pages/Review";
+import ReviewPage from "./pages/ReviewPresentation";
 import LoginPage from "./pages/Login";
 import { Container } from "@mui/material";
 import { Layout, ProtectedRoute } from "@/shared/components";
@@ -15,6 +15,7 @@ const App = () => {
         flexDirection: "column",
         minHeight: "100vh",
         overflow: "hidden",
+        color: "darkgray"
       }}
     >
       <Routes>
@@ -23,7 +24,7 @@ const App = () => {
         <Route element={<ProtectedRoute />}>
           <Route element={<Layout />}>
             <Route path="/dashboard" element={<DashboardPage />} />
-            <Route path="/review" element={<ReviewPage />} />
+            <Route path="/reviewPresentation" element={<ReviewPage />} />
           </Route>
         </Route>
 

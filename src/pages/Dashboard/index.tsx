@@ -5,7 +5,7 @@ import classes from "./Dashboard.module.scss";
 
 const DashboardPage = () => {
   return (
-    <Box component="main" className={classes.dashboard}>
+    <Box className={classes.dashboard}>
       <MainTable />
       <SideTable />
     </Box>
